@@ -1,30 +1,17 @@
 package opt.test;
 
-import java.util.Arrays;
-
 import dist.DiscreteDependencyTree;
 import dist.DiscreteUniformDistribution;
 import dist.Distribution;
-
-import opt.DiscreteChangeOneNeighbor;
-import opt.EvaluationFunction;
-import opt.GenericHillClimbingProblem;
-import opt.HillClimbingProblem;
-import opt.NeighborFunction;
-import opt.RandomizedHillClimbing;
-import opt.SimulatedAnnealing;
-import opt.example.*;
-import opt.ga.CrossoverFunction;
-import opt.ga.DiscreteChangeOneMutation;
-import opt.ga.GenericGeneticAlgorithmProblem;
-import opt.ga.GeneticAlgorithmProblem;
-import opt.ga.MutationFunction;
-import opt.ga.StandardGeneticAlgorithm;
-import opt.ga.UniformCrossOver;
+import opt.*;
+import opt.example.TwoColorsEvaluationFunction;
+import opt.ga.*;
 import opt.prob.GenericProbabilisticOptimizationProblem;
 import opt.prob.MIMIC;
 import opt.prob.ProbabilisticOptimizationProblem;
 import shared.FixedIterationTrainer;
+
+import java.util.Arrays;
 
 /**
  * @author Daniel Cohen dcohen@gatech.edu
@@ -65,7 +52,7 @@ public class TwoColorsTest {
         System.out.println(ef.value(ga.getOptimal()));
         
         MIMIC mimic = new MIMIC(50, 10, pop);
-        fit = new FixedIterationTrainer(mimic, 100);
+        fit = new FixedIterationTrainer(mimic, 15);
         fit.train();
         System.out.println(ef.value(mimic.getOptimal()));
     }
